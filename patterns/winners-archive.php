@@ -20,7 +20,7 @@ function display_winners_by_year()
 
 	foreach ($years as $year) {
 		$args = array(
-			'post_type' => 'winner',
+			'post_type' => 'winners',
 			'meta_key' => 'chasinggood_winner_year',
 			'meta_value' => $year
 		);
@@ -89,42 +89,8 @@ function display_winners_by_year()
 
 <h1>Meet The Winners</h1>
 <div>
-	<?php
-	$args = array(
-		'post_type' => 'winner', // Replace with your winner post type slug
-		'meta_key' => 'chasinggood_winner_year',
-		'orderby' => 'meta_value',
-		'order' => 'DESC',
-		'posts_per_page' => -1, // Show all winners
-	);
-	$winners_query = new WP_Query($args);
-
-	?>
-
 	<div class="winner-container">
 		<?php display_winners_by_year(); ?>
-		<?php
-
-		if ($winners_query->have_posts()) :
-
-		?>
-
-			<?php
-			while ($winners_query->have_posts()) : $winners_query->the_post();
-			?>
-
-				<?php
-				$winner_image = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail'); // Adjust image size as needed
-				$winner_name = get_field('chasinggood_winner_name');
-				$winner_year = get_field('chasinggood_winner_year'); // Get the year from the post date
-				$winner_place = get_field('chasinggood_winner_place');
-				$winner_location = get_field('chasinggood_winner_location');
-				$winner_description = get_the_content(); // Get the full post content
-				?>
-			<?php endwhile;
-		else : ?>
-			<p>No winners found yet.</p>
-		<?php endif;
-		wp_reset_postdata(); ?>
+		<?php wp_reset_postdata(); ?>
 	</div>
 </div>
