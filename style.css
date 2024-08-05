@@ -1,0 +1,141 @@
+/**
+* Theme Name: Chasing Good
+* Template: twentytwentyfour
+*/
+
+/* Add your styles here */
+body {
+  margin: 0;
+  padding: 20px;
+}
+
+.tabs {
+  width: 100%;
+  background-color: #f2f2f2; /* Light background color */
+  border: 1px solid #ccc; /* Border around the tabs */
+  padding: 20px;
+}
+
+.tab-links li {
+  /* Display properties */
+  display: inline-block; /* Tabs appear side-by-side */
+  list-style: none; /* Remove default bullet points */
+  padding: 10px 20px; /* Add some padding for space */
+  margin-right: 5px; /* Add spacing between tabs */
+  cursor: pointer; /* Indicate clickable behavior */
+
+  /* Text styling */
+  font-weight: bold; /* Make tabs stand out */
+
+  /* Border and background */
+  border: 1px solid #ccc; /* Add a subtle border */
+  border-bottom: none; /* Remove bottom border for active tab */
+  background-color: #f2f2f2; /* Light background color */
+
+  /* Transitions for smooth hover effects (optional) */
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Style the active tab link */
+.tab-links li.active {
+  background-color: #fff; /* White background for active tab */
+  border-bottom: 2px solid #007bff; /* Add a bottom border for active tab */
+}
+
+/* Style on hover effect (optional) */
+.tab-links li:hover {
+  background-color: #ddd; /* Change background color on hover */
+}
+
+.tab-content .tab {
+  display: none;
+}
+
+.tab-content .tab.active {
+  display: block;
+}
+
+.winner-container {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 75em;
+  margin: 0 auto;
+}
+
+.year-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  flex-basis: 100%;
+  margin-bottom: 10px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.winner-info {
+  width: 200px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.winner-story {
+  flex: 1;
+}
+
+.winner-name,
+.winner-location {
+  margin: 0.1em 0;
+}
+
+.winner-name {
+  color: #2f2f2f;
+  font-family: "Merriweather", Sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2em;
+}
+
+.winner-location {
+  color: #2f2f2f;
+  font-family: "Work Sans", Sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.36em;
+}
+
+.winner-place {
+  font-family: "Work Sans", Sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.36em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.winner-year {
+  color: #2d35a0;
+  font-family: "Work Sans", Sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.36em;
+  padding-right: 1em;
+  border-right: 1px solid #c3c3c3;
+}
+
+.winner-yearplace-container {
+  display: flex;
+}
+
+.winner-image {
+  margin-bottom: 5px;
+}
+
+.winner-description {
+  font-size: 0.8em;
+}
