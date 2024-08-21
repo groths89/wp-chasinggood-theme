@@ -36,3 +36,35 @@ function my_theme_styles_endpoint()
 }
 
 add_action('rest_api_init', 'my_theme_styles_endpoint');
+
+function get_winners_by_year($year)
+{
+    $args = array(
+        'post_type' => 'winners',
+        'meta_key' => 'chasinggood_winner_year',
+        'meta_value' => $year
+    );
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $winners[] = array(
+                'id' => get_the_ID(),
+                'name' => get_field('chasinggood_winner_name'),
+            );
+        }
+        wp_reset_postdata();
+    }
+
+    wp_send_json($winners);
+}
+add_action('rest_api_init', 'register_get_winners_by_year_route');
+
+function register_get_winners_by_year_route()
+{
+    register_rest_route('https://wp.chasinggood.org/wp-json/wp/v2', '/winners/(?P<year>\d+)', array(
+        'methods' => WP_REST_Server::READABLE,
+        'callback' => 'get_winners_by_year',
+    ));
+}
